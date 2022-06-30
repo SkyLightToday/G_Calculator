@@ -78,8 +78,15 @@ public class Calc {
         int result = calcExpression(num1, operator, num2);
 
         //если числа римские, то конвертируем в римские и возвращаем результат
-        if (isRomanExp){
-            String sign = result < 0 ? "-" : "";
+//        if (isRomanExp){
+//            String sign = result < 0 ? "-" : "";
+//            return sign + parse.arabToRomeConvert(Math.abs(result));
+//        }
+        if(isRomanExp) {
+            String sign = result > 0? "": "";
+            if(result <= 0) {
+                throw new CalcException("ОШИБКА. В римской системе счисления нет нуля и отрицательных чисел.");
+            } else
             return sign + parse.arabToRomeConvert(Math.abs(result));
         }
 
